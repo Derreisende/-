@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>在Canvas中实现动画</title>
+		<style type="text/css">
+			#can1{
+				border-top:2px solid #00BFFF ;
+				border-bottom: 2px solid #8A2BE2;
+				border-left: 2px solid aqua;
+				border-right: 2px solid gold;
+			}
+			#animation{
+				text-align: center;
+			}
+			
+		</style>
+		<script>
+			var animation={};
+			//添加定时器
+			animation.interval=null;
+			//移动变换x方向的偏移量
+			animation.x=100;
+			//移动变换x方向的偏移量
+			animation.y=50;
+			//x方向的移动步长
+			animation.xstep=5;
+			//y方向的移动步长
+			animation.ystep=5;
+			//圆形半径
+			animation.radius=15;
+			//填充圆形的颜色
+			animation.color="red";
+			//动画间隔时间：毫秒
+			animation.delay=20;
+			//update方法会检测各个边缘，在球碰到边缘时改变其颜色
+			animation.update=function(width,height){
+				this.x+=this.xstep;
+				this.y+=this.ystep;
+				//左边缘检测
+				if(this.x<this.radius){
+					this.x=this.radius;
+					this.xstep=-this.xstep;
+					this.color="aqua";
+				}
+				//右边缘检测
+				if((this.x+this.radius)>width){
+					this.x=width-this.radius;
+					this.xstep=-this.xstep;
+					this.color="gold";
+				}
+				//上边缘检测
+				if(this.y<this.radius){
+					this.y=this.radius;
+					this.ystep=-this.ystep;
+					this.color="#00BFFF";
+				}
+				//底边缘检测
+				if((this.y+this.radius)>height){
+					this.y=height-this.radius;
+					this.ystep=-this.ystep;
+					this.color="#8A2BE2";
+				}	
+			}
+			animation.draw=function(){
+				var canvas=document.getElementById("can1");
+				var width=canvas.getAttribute("width");
+				var height=canvas.getAttribute("height");
+				var context=canvas.getContext("2d");
+				context.save();
+				//清空画布
+				context.clearRect(0,0,width,height);
+				this.update(width,height);
+				context.fillStyle=this.color;
+				context.translate(this.x,this.y);
+				context.beginPath();
+				context.arc(0,0,this.radius,0,Math.PI*2,true);
+				context.fill();
+				context.restore();
+			}
+			animation.pause=function(){
+				clearInterval(this.interval);
+			}
+			animation.start=function(){
+				this.pause();
+				this.interval=setInterval("animation.draw()",this.delay);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="animation">
+		<canvas id="can1" height="400" width="400">浏览器不支持Canvas</canvas><br />
+		<input type="button" value="开始" onclick="animation.start()" />
+		<input type="button" value="暂停" onclick="animation.pause()" />
+		</div>
+	</body>
+</html>

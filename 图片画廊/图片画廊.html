@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-color: #F0FFFF;
+			}
+			#gallery{
+				list-style: none;
+				margin: 20px auto;
+				padding: 40px;
+				width: 1400px;
+			}
+			#gallery li{
+				padding: 10px 10px 25px 10px;
+				float: left;
+				width: 240px;
+				height:180px;
+				overflow: visible;
+			}
+			#gallery li a{
+				background-color: azure;
+				color: #333;
+				text-decoration: none;
+				font-size: 4px;
+				display: block;
+				text-align: center;
+				padding: 10px;
+				opacity: 0.8;
+				box-shadow:0 0 5px 5px;
+			}
+			#gallery li img{
+				width: 220px;
+				height: 130px;
+			}
+			#gallery li a{
+				transition: all 500ms linear;
+				transform-origin: 0 0;
+				transform: rotate(-15deg);
+			}
+			#gallery li:nth-child(2n) a{
+				transform:rotate(15deg);
+			}
+			#gallery li:nth-child(3n) a{
+				transform: rotate(-15deg);
+			}
+			#gallery li a:hover{
+				position: relative;
+				z-index: 999;
+				opacity: 1;
+				transform: rotate(0deg) scale(1.5);
+			}
+			#gallery li a:hover::after{
+				content: attr(title);
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="gallery">
+			<li><a href="#" title="光影"><img src="./img/光影.jpg"></a></li>
+			<li><a href="#" title="悟饭"><img src="./img/悟饭.jpg"></a></li>
+			<li><a href="#" title="日落"><img src="./img/日落.jpeg"></a></li>
+			<li><a href="#" title="星"><img src="./img/星.jpg"></a></li>
+			<li><a href="#" title="水光接天"><img src="./img/水光接天.jpg"></a></li>
+			<li><a href="#" title="火山"><img src="./img/火山.jpg"></a></li>
+			<li><a href="#" title="harden"><img src="./img/harden.jpg"></a></li>
+			<li><a href="#" title="kobe"><img src="./img/kobe.jpg"></a></li>
+			<li><a href="#" title="大浪"><img src="./img/大浪.jpg"></a></li>
+			<li><a href="#" title="沉没"><img src="./img/沉没.jpg"></a></li>
+		
+		</ul>
+	</body>
+</html>

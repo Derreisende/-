@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.hero-box {
+		    width: 732px;
+			height: 200px;
+		    padding: 8px 20px 0;
+		    color: #a6afbc;
+			background-color: dodgerblue;
+		}
+		p {
+		    display: block;
+		    -webkit-margin-before: 1em;
+		    -webkit-margin-after: 1em;
+		    -webkit-margin-start: 0px;
+		    -webkit-margin-end: 0px;
+		}
+		ul{
+			list-style: none;
+			display: block;
+			-webkit-margin-before: 1em;
+			-webkit-margin-after: 1em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+		
+		}
+		.clearfix{
+			zoom: 1;
+		}
+		.hero-list{
+			margin-top: 8px;
+		}
+		.hero-list li{
+			    float: left;
+			    display: inline;
+			    position: relative;
+			    margin-right: 10px;
+			    width: 69px;
+			    -webkit-transition: 0.4s ease-in-out;
+			    transition: 0.4s ease-in-out;
+			    overflow: hidden;
+		}
+		.hero-list li a{
+			    display: block;
+			    position: relative;
+			    width: 69px;
+			    height: 69px;
+				text-decoration: none;
+				color: #363636;
+		}
+		.hero-list img {
+			border-radius: 5px;
+			-webkit-transition: 0.4s ease-in-out;
+			transition: 0.4s ease-in-out;
+			opacity: 1;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		img {
+		    display: block;
+		    border: 0;
+		    border-radius: 5px;
+		}
+	  .hero-list li .large {
+		    opacity: 0;
+		}
+		 .hero-list li.current .large{
+			opacity: 1;
+		}
+		 .hero-list li.current .small{
+			opacity: 0;
+		}
+		 .hero-list li.current {
+		    width: 224px;
+		}
+	</style>
+    
+	</head>
+	<body>
+		<div class="hero-box fl pr">	
+		  <p id="FreeHeros-Title">
+			<b>周免英雄（<span id="freeHerosPeriod">2月24日-3月1日</span>）</b>
+		  </p>	
+		  <ul id="FreeHeros-Cont" class="hero-list clearfix">
+			  <li class="">	
+			  <a href="//pvp.qq.com/web201605/herodetail/117.shtml" target="_blank">
+			     <img class="small" data-id="117" src="img/云中君small.jpg" width="69" height="69">	
+				<img class="large" data-id="117" src="img/云中君large.png" width="224" height="69"></a></li>
+			  <li class="">	<a href="//pvp.qq.com/web201605/herodetail/148.shtml" target="_blank">		
+				  <img class="small" data-id="148" src="img/刘备small.jpg" height="69">		
+				  <img class="large" data-id="148" src="img/刘备large.png" width="224" height="69">
+			  </a></li>
+			  <li class="">	<a href="//pvp.qq.com/web201605/herodetail/170.shtml" target="_blank">		
+				<img class="small" data-id="170" src="img/司马懿small.jpg" height="69">		
+			  <img class="large" data-id="170" src="img/司马懿large.png" width="224" height="69">	
+			  </a></li>
+			  <li class="">	<a href="//pvp.qq.com/web201605/herodetail/177.shtml" target="_blank" >		
+			  <img class="small" data-id="177" src="img/姜子牙small.jpg" width="69" height="69">		
+			  <img class="large" data-id="177" src="img/姜子牙large.png" width="224" height="69">	</a></li>
+			  <li class="active">	
+			  <a href="//pvp.qq.com/web201605/herodetail/137.shtml" target="_blank" >		
+			  <img class="small" data-id="137" src="img/成吉思汗small.jpg" width="69" height="69">		
+			  <img class="large" data-id="137" src="img/成吉思汗large.png" width="224" height="69">	
+			  </a></li>
+			  <li class="">	<a href="//pvp.qq.com/web201605/herodetail/509.shtml" target="_blank">	
+				  <img class="small" data-id="509" src="img/石头怪small.jpg" width="69" height="69">		
+				  <img class="large" data-id="509" src="img/盾山large.png" width="224" height="69">	
+				  </a></li>
+				  <li class="">	<a href="//pvp.qq.com/web201605/herodetail/506.shtml" target="_blank">		
+				  <img class="small" data-id="506" src="img/钟无艳small.jpg" width="69" height="69">		
+				  <img class="large" data-id="506" src="img/钟无艳large.png" width="224" height="69">	
+				  </a></li>
+			</ul>	
+			</div>
+            <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+            <script type="text/javascript">
+                $(function(){
+                	$("li").hover(function(){
+                		$(this).toggleClass("current");
+                	})
+                })
+            </script>
+     </body>
+</html>
